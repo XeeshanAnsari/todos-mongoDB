@@ -4,7 +4,7 @@ import TodoReducers from './todo_reducer'
 
 
 const rootReducers = combineReducers({
-    TodoReducers
+      todos:TodoReducers
 })
 
 export default rootReducers

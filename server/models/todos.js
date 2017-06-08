@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const todosSchema = new Schema({
     todos:{
         type:String,
+        required:true
         
     }
 })

@@ -1,9 +1,11 @@
 
+export default class TodosActions{
+    
+    static Todos(todos) {
+        return {
+            type: "TODOS",
+            todos
+        }
 
-export default function (todo) {
-    return {
-        type: "ADD_TODO",
-        todos
     }
-
 }
