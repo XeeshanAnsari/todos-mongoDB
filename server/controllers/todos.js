@@ -14,6 +14,14 @@ module.exports = {
         Todos.find({})
             .then(todos => res.send(todos))
             .catch(next)
+    },
+
+    deleteTodo(req, res, next) {
+        const todoId =  req.params.id;
+
+        Todos.findByIdAndRemove({ _id: todoId })
+         .then(todo => res.status(204).send(todo))
+         .catch(next)
     }
 
 }

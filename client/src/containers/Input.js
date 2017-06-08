@@ -9,7 +9,7 @@ function mapDispatchToProps(dispatch) {
     return {
         create: (todo) => dispatch(TodoMiddleware.createTodo(todo)),
         getTodos: () => dispatch(TodoMiddleware.getAllTodos()),
-        deleteTodo:(id) => dispatch(TodoMiddleware.delete(id))
+        deleteTodo:(todo) => dispatch(TodoMiddleware.delete(todo))
     }
 }
 
@@ -56,7 +56,7 @@ class Input extends Component {
                                 title={todo.todos}
                                />
                             <CardActions>
-                               <FlatButton label="Delete" secondary={true} onTouchTap={() => this.props.delete(todo._id)} />
+                               <FlatButton label="Delete" secondary={true} onTouchTap={() => this.props.deleteTodo(todo)} />
                             </CardActions>
                         </Card>
 
