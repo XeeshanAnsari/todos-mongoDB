@@ -1,7 +1,8 @@
 const todosController = require('../controllers/todos')
 
-module.exports =(app) =>{
+module.exports = (app) => {
     app.post('/api/todos', todosController.createTodos)
-    app.get('/api/todos' , todosController.getTodos)
+    app.get('/api/todos', todosController.getTodos)
     app.delete('/api/todos/delete/:id', todosController.deleteTodo)
+    app.put('/api/todos/edit/:id', todosController.editTodo)
 }

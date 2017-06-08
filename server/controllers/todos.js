@@ -17,11 +17,22 @@ module.exports = {
     },
 
     deleteTodo(req, res, next) {
-        const todoId =  req.params.id;
+        const todoId = req.params.id;
 
         Todos.findByIdAndRemove({ _id: todoId })
-         .then(todo => res.status(204).send(todo))
-         .catch(next)
+            .then(todo => res.status(204).send(todo))
+            .catch(next)
+    },
+
+    editTodo(req, res, next) {
+        const todoId = req.params.id;
+        const todoProps = req.body;
+
+        console.log(todoId)
+        Todos.findByIdAndUpdate({ _id: todoId }, todoProps)
+            .then(todo => res.send(todo))
+            .catch(next)
+
     }
 
 }

@@ -26,12 +26,27 @@ export default class TodoMiddlware {
 
 
     static delete(todo) {
-        return dispatch =>{
+        return dispatch => {
             axios.delete(`http://localhost:3050/api/todos/delete/${todo._id}`)
-             .then(response =>{
-                 dispatch(TodoMiddlware.getAllTodos())
-             })
-             .catch(error => console.log(error.message))
+                .then(response => {
+                    dispatch(TodoMiddlware.getAllTodos())
+                })
+                .catch(error => console.log(error.message))
+        }
+    }
+
+
+    static update(id, todos) {
+        return dispatch => {
+            console.log(todos)
+            axios.put(`http://localhost:3050/api/todos/edit/${id}`, { todos })
+                .then(response => {
+
+                    dispatch(TodoMiddlware.getAllTodos())
+
+                })
+                .catch(error => console.log(error.message))
+
         }
     }
 }
